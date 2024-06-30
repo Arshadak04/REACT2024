@@ -1,0 +1,31 @@
+{
+  "name": "react_folder",
+  "version": "1.0.0",
+  "description": "Learning a React",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arshadak04/REACT2024.git"
+  },
+  "keywords": [],
+  "author": "arshad qureshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arshadak04/REACT2024/issues"
+  },
+  "homepage": "https://github.com/Arshadak04/REACT2024#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist":{
+
+  }
+}

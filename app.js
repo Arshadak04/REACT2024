@@ -1,4 +1,6 @@
-console.log("Hello")
+// console.log("Hello")
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const haeding=React.createElement("h1",{id:"h1-class"},"Hello This Js Contain")
 
@@ -27,5 +29,5 @@ const recursive=React.createElement("div",
     )
 const root=ReactDOM.createRoot(document.getElementById("hello"));
 // root.render(haeding)
-console.log(recursive)
+// console.log(recursive)
 root.render(recursive)
