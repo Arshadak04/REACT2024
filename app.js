@@ -27,7 +27,32 @@ const recursive=React.createElement("div",
                 )
     ]
     )
+//react Element
+    const jsxheading=<h1 id="h1-class">Hello This is JSX</h1>
+
+    //react component for other component
+    const NewTitle = ()=>(
+        <h1>I am inside secodary component</h1>
+    )
+    // React Component
+    const NewComponent = ()=>(
+        <div>
+            {jsxheading}
+            {<NewTitle/>}
+            <h1 id="h1-classvt">Hello This is inside the react Component {<NewTitle/>}</h1>
+        </div>
+    );
+    
+    // function Car() {
+    //     return <h2>Hi, I am a Car!</h2>;
+    //   }
 const root=ReactDOM.createRoot(document.getElementById("hello"));
 // root.render(haeding)
 // console.log(recursive)
-root.render(recursive)
+// console.log(jsxheading)
+//rendering react element
+// root.render(jsxheading)
+//rendering a react  component
+root.render(<NewComponent />);
+// root.render(<Car/>)
+
