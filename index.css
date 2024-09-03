@@ -1,3 +1,157 @@
-#h1-class{
-    color: aqua;
+.header{
+display:flex;
+justify-content: space-between;
+border: 1px solid black;
 }
+
+.logo{
+    width: 100px;
+    padding: 18px 10px;
+}
+
+
+
+/* .nav-items{
+    padding: 0px 20px;
+} */
+ 
+.nav-items > ul{
+    display: flex;
+    padding: 0px 20px;
+    list-style-type: none;
+    font-size: 24px;
+} 
+
+.nav-items > ul >li{
+     padding: 10px;
+     margin: 10px;
+} 
+
+.res-card{
+    padding: 2px;
+    width: 200px;
+    /* height: 300px; */
+    
+    background-color: aqua;
+    margin: 4px;
+}
+
+.res-card:hover{
+    background-color: grey;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.search{
+    padding: 10px;
+}
+
+.res-logo{
+    width: 100%;
+    height: 150px;
+
+    
+}
+.res-container{
+
+display: flex;
+flex-wrap: wrap;
+/* justify-content: space-between; */
+/* padding: 10px; */
+margin: 5px;
+}
+
+.top_rated{
+/* padding-top: 5px;   */
+margin-top: 5px;
+}
+
+.Shimmer-card{
+  padding: 5px;
+  margin: 5px;
+  width: 190px;
+  height: 340px;
+  background-color: aqua;
+}
+
+.shimmer-container{
+  display: flex;
+flex-wrap: wrap;
+}
+
+.login{
+  width: 60px;
+}
+
+.lower-container{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+
+/* .header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    padding: 0 20px;
+  }
+  
+  .logo-container {
+    flex: 1;
+  }
+  
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+  
+  .nav-items ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-items li {
+    margin-left: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .res-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .res-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .body {
+    padding: 20px;
+  }
+  
+  .search {
+    margin-bottom: 20px;
+  }
+  
+  .res-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .app {
+    font-family: Arial, sans-serif;
+  } */
+  
