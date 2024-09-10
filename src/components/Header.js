@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utilities/common";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Header = () => {
 
 // let logout="Login"
@@ -16,9 +17,22 @@ const [logout,setlogout]=useState("Login")
         </div>
         <div className="nav-items">
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <li>
+              <Link to="/">
+              Home     
+              </Link>
+              </li>
+            <li>
+              <Link to="/about">
+              About Us
+              </Link>
+              </li>
+              
+              <li>
+              <Link to="/contact-us">
+              Conatct Us
+              </Link>
+              </li>
             <li>Cart</li>
             <button onClick={()=>{
               logout==="Login"?setlogout("Logout"):setlogout("Login")

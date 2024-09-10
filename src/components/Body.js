@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState ,useEffect } from "react";
+import { useState ,useEffect } from "react"
+
 import Shimmerui from "./Shimmerui";
 
 
@@ -8,15 +9,10 @@ const Body = () => {
 
     const [newList,setnewList]=useState([])
     const [searchtext,setsearchtext]=useState([])
-
     const [Filterres,setFilterres]=useState([])
-
 
     console.log("Body Render")
     
-
-   
-
     useEffect(()=>{
       fetchData();
     },[]);
@@ -25,7 +21,7 @@ const Body = () => {
    
     const fetchData = async ()=> {
      
-      const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+      const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
       
       // console.log(data)
       const json= await data.json();
@@ -73,8 +69,9 @@ const Body = () => {
           
  
           <button className="top_rated" onClick={()=>{
-            const tesList=newList.filter((res)=> res.info.avgRating >4 ); 
-            setnewList(tesList)
+            const tesList=newList.filter((res)=> res.info.avgRating > 4 );
+            setFilterres(tesList)
+            console.log("Top Reatuatent ")
               }}>Top Restaurent</button>
         </div>
         <div className="res-container">

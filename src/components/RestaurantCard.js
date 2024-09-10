@@ -8,7 +8,7 @@ const RestaurantCard = (props) => {
       cuisines,
       avgRating,
       costForTwo,
-      deliveryTime,
+      sla,
     } = resData?.info;
     // const test={IMG_URL}+{cloudinaryImageId}
     // console.log(test)
@@ -40,7 +40,7 @@ const RestaurantCard = (props) => {
         <h4>{avgRating} stars</h4>
         <h4>{costForTwo}</h4>
         {/* {console.log(costForTwo)} */}
-        <h4>{deliveryTime} minutes</h4>
+        <h4>{sla.deliveryTime} minutes</h4>
       </div>
     );
   };
