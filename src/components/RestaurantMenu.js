@@ -1,38 +1,61 @@
-import { useState ,useEffect } from "react"
-import Shimmerui from "./Shimmerui"
-const RestaurantMenu= () =>{
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Shimmerui from "./Shimmerui";
+import { RES_MENU_URL } from "../utilities/common";
 
+const RestaurantMenu = () => {
+  const [resInfo, setResInfo] = useState(null);
+  
+  // Extract restaurant ID from the URL params
+  const { resid } = useParams();
+  console.log({resid})
 
-    const [resInfo,setresInfo]=useState(null)
-    useEffect(()=>{
-        fetchMenu();
-    },[])
+  useEffect(() => {
+    fetchMenu();
+  }, []);
 
-    const fetchMenu =  async()=>{
-        const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.406498&lng=78.47724389999999&restaurantId=575804&catalog_qa=undefined&submitAction=ENTER");
-        const json= await data.json();
-        
-        setresInfo(json.data)
-        
+  const fetchMenu = async () => {
+    try {
+      const data = await fetch(`${RES_MENU_URL}${resid}`);
+    //   const data =await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.20018612485776&lng=78.16196221858263&restaurantId=84683");
+    console.log("Restaurant ID:", resid);
+console.log("Full URL being fetched:", `${RES_MENU_URL}${resid}`);
+      const json = await data.json();
+      setResInfo(json.data);
+    } catch (error) {
+      console.error("Error fetching menu:", error);
     }
+  };
 
-    if(resInfo===null ) return <Shimmerui/>
+  if (resInfo === null) return <Shimmerui />;
 
-    return(
-        <div className="menu">
-          <h1>{resInfo.cards[2].card.card.info.name}</h1>
-            <h1>Arshad Qureshi</h1>
-            <h3>
-               {/* {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel[0]?.title?} */}
-            </h3>
-            <h3>
-                2.Badai ka ghost
-            </h3>
-            <h3>
-                3.Chicken Kofta
-            </h3>
-        </div>
-    )
-}
+  // Optional chaining and default values to avoid destructuring errors
+  const name = resInfo?.cards?.[2]?.card?.card?.info?.name || "Restaurant Name Not Available";
+  const costForTwoMessage = resInfo?.cards?.[2]?.card?.card?.info?.costForTwoMessage || "Cost info not available";
+  const cuisines = resInfo?.cards?.[2]?.card?.card?.info?.cuisines || [];
+
+  // Safeguard in case itemCards is undefined
+  const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards || [];
+
+  return (
+    <div className="menu">
+      <h1>{name}</h1>
+      <h3>{costForTwoMessage}</h3>
+      <h4>{cuisines.length > 0 ? cuisines.join(", ") : "Cuisine info not available"}</h4>
+
+      <h2>Menu</h2>
+      <ul>
+        {itemCards.length > 0 ? (
+          itemCards.map((item, index) => (
+            <li key={index}>{item.card.info.name} - {item.card.info.price}</li>
+          ))
+        ) : (
+          <li>Menu items not available</li>
+        )}
+      </ul>
+    </div>
+  );
+};
 
 export default RestaurantMenu;
+

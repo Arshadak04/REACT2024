@@ -2,6 +2,8 @@ import RestaurantCard from "./RestaurantCard";
 import { useState ,useEffect } from "react"
 
 import Shimmerui from "./Shimmerui";
+import { RES_DATA_URL } from "../utilities/common";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -21,7 +23,9 @@ const Body = () => {
    
     const fetchData = async ()=> {
      
-      const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+      // const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+      // const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+      const data= await fetch(RES_DATA_URL);
       
       // console.log(data)
       const json= await data.json();
@@ -79,7 +83,7 @@ const Body = () => {
          
   
           {Filterres.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+           <Link key={restaurant.info.id} to={"/restaurent/"+restaurant.info.id} > <RestaurantCard  resData={restaurant} /> </Link> 
           ))}
   
          
